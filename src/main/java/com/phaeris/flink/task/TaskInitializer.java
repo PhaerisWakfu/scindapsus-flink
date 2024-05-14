@@ -102,7 +102,6 @@ public class TaskInitializer {
                     .trigger(new ProcessingTimeTrigger(context.getMaxCount()))
                     .aggregate(new ListAgg<>())
                     .addSink(new CommonDBSink(context.getDbConfig(), handlerMap))
-                    .name(handlerName)
                     .setParallelism(context.getParallelism());
         });
 
