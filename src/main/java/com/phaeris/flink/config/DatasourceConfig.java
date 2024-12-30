@@ -6,6 +6,7 @@ import com.phaeris.flink.enums.DatasourceEnum;
 import com.phaeris.flink.util.JdbcUtil;
 import com.phaeris.flink.util.PropertiesUtil;
 import lombok.Data;
+import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,7 +16,6 @@ import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 import javax.sql.DataSource;
 import java.io.Serializable;
-import java.util.ResourceBundle;
 import java.util.Set;
 
 import static com.phaeris.flink.constants.PropertiesConstants.*;
@@ -43,10 +43,10 @@ public class DatasourceConfig implements Serializable {
             throw new IllegalArgumentException("unknown env");
         }
         this.env = env;
-        ResourceBundle bundle = PropertiesUtil.get(env);
-        this.outDbConfig = CDCConfig.fill(bundle, JDBC_OUT_PREFIX);
-        this.sinkDbConfig = CDCConfig.fill(bundle, JDBC_SINK_PREFIX);
-        this.mapperClazz = ClassUtil.scanPackage(bundle.getString(MAPPER_LOCATIONS));
+        ParameterTool parameterTool = PropertiesUtil.create(env);
+        this.outDbConfig = CDCConfig.fill(parameterTool, JDBC_OUT_PREFIX);
+        this.sinkDbConfig = CDCConfig.fill(parameterTool, JDBC_SINK_PREFIX);
+        this.mapperClazz = ClassUtil.scanPackage(parameterTool.get(MAPPER_LOCATIONS));
     }
 
     public SqlSessionFactory getSqlSessionFactory(CDCConfig config) {

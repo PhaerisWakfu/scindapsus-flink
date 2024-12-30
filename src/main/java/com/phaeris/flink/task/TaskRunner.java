@@ -1,5 +1,6 @@
 package com.phaeris.flink.task;
 
+import cn.hutool.core.text.CharSequenceUtil;
 import com.google.common.collect.Lists;
 import com.phaeris.flink.config.DatasourceConfig;
 import com.phaeris.flink.constants.EnvConstants;
@@ -43,7 +44,10 @@ public class TaskRunner {
     public static TaskContext buildContext(String[] args, Class<? extends IBaseHandler> handlerClazz,
                                            JsonFieldMapping fieldMapping, Function<DatasourceConfig, String> topicFunc) {
         ParameterTool parameterTool = ParameterTool.fromArgs(args);
-        String env = parameterTool.get(EnvConstants.ENV, EnvConstants.TEST);
+        String env = parameterTool.get(EnvConstants.ENV);
+        if (CharSequenceUtil.isBlank(env)) {
+            throw new IllegalArgumentException("运行环境未指定");
+        }
         String startUpModel = parameterTool.get(EnvConstants.STARTUP_MODEL, KafkaStreamConstants.LATEST);
         String taskVersion = parameterTool.get(EnvConstants.TASK_VERSION, EnvConstants.DEFAULT_TASK_VERSION);
         log.info("[执行任务{}] 执行环境: [{}]", handlerClazz.getName(), env);

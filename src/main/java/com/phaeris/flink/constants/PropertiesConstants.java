@@ -12,6 +12,8 @@ public class PropertiesConstants {
 
     public static final String PROPERTIES_NAME_FORMAT = "application-%s";
 
+    public static final String PROPERTIES_SUFFIX = ".properties";
+
     /*jdbc*/
 
     public static final String JDBC_DIALECT_FORMAT = "%s.dialect";

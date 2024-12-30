@@ -2,10 +2,9 @@ package com.phaeris.flink.config;
 
 import lombok.Builder;
 import lombok.Data;
+import org.apache.flink.api.java.utils.ParameterTool;
 
 import java.io.Serializable;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
 
 import static com.phaeris.flink.constants.PropertiesConstants.*;
 
@@ -37,22 +36,15 @@ public class CDCConfig implements Serializable {
     private String password;
 
 
-    public static CDCConfig fill(ResourceBundle bundle, String prefix) {
+    public static CDCConfig fill(ParameterTool parameterTool, String prefix) {
         CDCConfigBuilder builder = CDCConfig.builder()
-                .sourceType(Integer.valueOf(bundle.getString(String.format(JDBC_DIALECT_FORMAT, prefix))))
-                .host(bundle.getString(String.format(JDBC_HOST_FORMAT, prefix)))
-                .port(Integer.valueOf(bundle.getString(String.format(JDBC_PORT_FORMAT, prefix))))
-                .database(bundle.getString(String.format(JDBC_DATABASE_FORMAT, prefix)))
-                .username(bundle.getString(String.format(JDBC_USERNAME_FORMAT, prefix)))
-                .password(bundle.getString(String.format(JDBC_PASSWORD_FORMAT, prefix)));
-        //option
-        String schema = null;
-        try {
-            schema = bundle.getString(String.format(JDBC_SCHEMA_FORMAT, prefix));
-        } catch (MissingResourceException exception) {
-            //do nothing
-        }
-        builder.schema(schema);
+                .sourceType(parameterTool.getInt(String.format(JDBC_DIALECT_FORMAT, prefix)))
+                .host(parameterTool.get(String.format(JDBC_HOST_FORMAT, prefix)))
+                .port(parameterTool.getInt(String.format(JDBC_PORT_FORMAT, prefix)))
+                .database(parameterTool.get(String.format(JDBC_DATABASE_FORMAT, prefix)))
+                .username(parameterTool.get(String.format(JDBC_USERNAME_FORMAT, prefix)))
+                .password(parameterTool.get(String.format(JDBC_PASSWORD_FORMAT, prefix)))
+                .schema(parameterTool.get(String.format(JDBC_SCHEMA_FORMAT, prefix)));
         return builder.build();
     }
 }

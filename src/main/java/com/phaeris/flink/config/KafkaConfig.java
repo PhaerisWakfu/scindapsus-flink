@@ -10,6 +10,6 @@ import com.phaeris.flink.util.PropertiesUtil;
 public class KafkaConfig {
 
     public static String getBrokers(String env) {
-        return PropertiesUtil.get(env).getString(PropertiesConstants.KAFKA_BROKERS);
+        return PropertiesUtil.create(env).get(PropertiesConstants.KAFKA_BROKERS);
     }
 }
