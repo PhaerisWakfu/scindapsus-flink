@@ -1,8 +1,8 @@
-package com.phaeris.flink.mapping.impl;
+package com.phaeris.flink.task.mapping.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.phaeris.flink.mapping.JsonFieldMapping;
+import com.phaeris.flink.task.mapping.JsonFieldMapping;
 
 /**
  * @author wyh

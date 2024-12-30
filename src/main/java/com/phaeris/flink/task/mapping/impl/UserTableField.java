@@ -1,6 +1,6 @@
-package com.phaeris.flink.mapping.impl;
+package com.phaeris.flink.task.mapping.impl;
 
-import com.phaeris.flink.mapping.AbstractTableField;
+import com.phaeris.flink.task.mapping.AbstractTableField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

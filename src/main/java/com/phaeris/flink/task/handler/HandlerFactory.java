@@ -1,4 +1,4 @@
-package com.phaeris.flink.handler;
+package com.phaeris.flink.task.handler;
 
 import com.phaeris.flink.enums.TableEnum;
 import com.phaeris.flink.util.IServiceLoader;

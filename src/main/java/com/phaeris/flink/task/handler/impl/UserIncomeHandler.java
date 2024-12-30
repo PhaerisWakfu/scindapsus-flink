@@ -1,13 +1,13 @@
-package com.phaeris.flink.handler.impl;
+package com.phaeris.flink.task.handler.impl;
 
 import com.google.auto.service.AutoService;
 import com.google.common.collect.Lists;
 import com.phaeris.flink.entity.po.User;
 import com.phaeris.flink.enums.TableEnum;
-import com.phaeris.flink.handler.HandlerContext;
+import com.phaeris.flink.task.handler.HandlerContext;
 import com.phaeris.flink.mapper.UserODSMapper;
 import com.phaeris.flink.mapper.UserIncomeADSMapper;
-import com.phaeris.flink.mapping.impl.UserTableField;
+import com.phaeris.flink.task.mapping.impl.UserTableField;
 
 import java.util.List;
 import java.util.stream.Collectors;

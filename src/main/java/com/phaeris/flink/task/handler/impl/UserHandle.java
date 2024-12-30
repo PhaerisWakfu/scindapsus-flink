@@ -1,7 +1,7 @@
-package com.phaeris.flink.handler.impl;
+package com.phaeris.flink.task.handler.impl;
 
 
-import com.phaeris.flink.handler.IBaseHandler;
+import com.phaeris.flink.task.handler.IBaseHandler;
 
 /**
  * @author wyh

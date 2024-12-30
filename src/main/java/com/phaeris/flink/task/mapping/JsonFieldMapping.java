@@ -1,4 +1,4 @@
-package com.phaeris.flink.mapping;
+package com.phaeris.flink.task.mapping;
 
 /**
  * @author wyh

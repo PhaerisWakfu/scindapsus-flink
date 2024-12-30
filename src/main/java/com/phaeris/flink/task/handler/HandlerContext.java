@@ -1,7 +1,7 @@
-package com.phaeris.flink.handler;
+package com.phaeris.flink.task.handler;
 
 import com.phaeris.flink.config.DatasourceConfig;
-import com.phaeris.flink.mapping.AbstractTableField;
+import com.phaeris.flink.task.mapping.AbstractTableField;
 import lombok.Builder;
 import lombok.Data;
 import org.apache.ibatis.session.SqlSession;

@@ -1,8 +1,8 @@
-package com.phaeris.flink.handler;
+package com.phaeris.flink.task.handler;
 
 import cn.hutool.core.collection.CollUtil;
 import com.phaeris.flink.enums.TableEnum;
-import com.phaeris.flink.mapping.AbstractTableField;
+import com.phaeris.flink.task.mapping.AbstractTableField;
 
 import java.io.Serializable;
 import java.util.List;

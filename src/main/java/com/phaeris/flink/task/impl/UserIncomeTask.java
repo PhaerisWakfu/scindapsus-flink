@@ -2,8 +2,8 @@ package com.phaeris.flink.task.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.phaeris.flink.constants.EnvConstants;
-import com.phaeris.flink.handler.impl.UserHandle;
-import com.phaeris.flink.mapping.impl.UserFieldMapping;
+import com.phaeris.flink.task.handler.impl.UserHandle;
+import com.phaeris.flink.task.mapping.impl.UserFieldMapping;
 import com.phaeris.flink.task.TaskContext;
 import com.phaeris.flink.task.TaskRunner;
 

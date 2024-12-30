@@ -1,8 +1,8 @@
 package com.phaeris.flink.task;
 
 import com.phaeris.flink.config.DatasourceConfig;
-import com.phaeris.flink.handler.IBaseHandler;
-import com.phaeris.flink.mapping.JsonFieldMapping;
+import com.phaeris.flink.task.handler.IBaseHandler;
+import com.phaeris.flink.task.mapping.JsonFieldMapping;
 import lombok.Builder;
 import lombok.Data;
 

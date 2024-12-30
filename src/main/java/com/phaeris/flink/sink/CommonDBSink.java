@@ -2,9 +2,9 @@ package com.phaeris.flink.sink;
 
 import cn.hutool.core.collection.CollUtil;
 import com.phaeris.flink.config.DatasourceConfig;
-import com.phaeris.flink.handler.HandlerContext;
-import com.phaeris.flink.handler.IBaseHandler;
-import com.phaeris.flink.mapping.AbstractTableField;
+import com.phaeris.flink.task.handler.HandlerContext;
+import com.phaeris.flink.task.handler.IBaseHandler;
+import com.phaeris.flink.task.mapping.AbstractTableField;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
